@@ -1,0 +1,7 @@
+.post {
+	width: '80%';
+}
+
+.post:hover {
+	transform: scale(1.01);
+}
