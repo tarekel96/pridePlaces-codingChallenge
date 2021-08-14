@@ -1,0 +1,9 @@
+.loadingSpinnerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.loadingSpinner {
+	width: 500px;
+	height: 500px;
+}

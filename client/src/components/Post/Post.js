@@ -41,7 +41,16 @@ export const Post = ({ title, id, authorName, authorCatchPhrase, postTitle, post
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<PostModal buttonLabel={title} modal={modal} setModal={setModal} handleMouseLeave={handleMouseLeave} />
+			<PostModal
+				buttonLabel={title}
+				modal={modal}
+				setModal={setModal}
+				handleMouseLeave={handleMouseLeave}
+				modalHeader={title}
+				modalBody={postBody}
+				authorName={authorName}
+				authorCatchPhrase={authorCatchPhrase}
+			/>
 		</ListGroupItem>
 	);
 };

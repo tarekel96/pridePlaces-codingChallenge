@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 // import util methods
 import { findAuthor } from './utils/fetchData';
 // import UI components
+import { Loading } from './components/Loading/Loading';
 import { PostsContainer } from './components/PostsContainer/PostsContainer';
 import { Post } from './components/Post/Post';
 // import styles
@@ -44,6 +45,8 @@ const App = () => {
 				};
 				tempUserPosts.push(currUserPost);
 			});
+			setAuthors(fetchAuthors);
+			setPosts(fetchPosts);
 			// tempUserPosts is done being mapped -> set tempUserPosts value
 			setAuthorPosts(tempUserPosts);
 			// loading set to false bc author and post data has been fetched and mapped
@@ -58,11 +61,17 @@ const App = () => {
 			{!loading ? (
 				<PostsContainer>
 					{authorPosts.map(({ authorName, authorCatchPhrase, postTitle, postBody, postId, postUserId }) => (
-						<Post key={postId} title={postTitle} />
+						<Post
+							key={postId}
+							title={postTitle}
+							authorName={authorName}
+							authorCatchPhrase={authorCatchPhrase}
+							postBody={postBody}
+						/>
 					))}
 				</PostsContainer>
 			) : (
-				<h1>Loading...</h1>
+				<Loading />
 			)}
 		</div>
 	);
