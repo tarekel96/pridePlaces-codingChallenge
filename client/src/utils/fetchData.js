@@ -1,18 +1,9 @@
-// asynchronously fetching API data from JSON Placeholder server
-export const fetchData = async (dataURL, dataSetter) => {
-	// specify options - GET request and receiving JSON data
-	const options = {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json'
-		}
+// helper function for finding the post's author given the post's userId
+export const findAuthor = (authorArray, userId) => {
+	let foundAuthor = authorArray.find((author) => userId === author.id);
+	let authorInfo = {
+		name: foundAuthor.name,
+		catchPhrase: foundAuthor.company.catchPhrase
 	};
-	// await for response from server
-	const res = await fetch(dataURL, options);
-	// await to convert data from body of response to JSON
-	const data = await res.json();
-	console.log(data);
-	// set JSON data to React state
-	dataSetter(data);
+	return authorInfo;
 };
