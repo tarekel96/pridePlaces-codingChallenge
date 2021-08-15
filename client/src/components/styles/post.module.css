@@ -5,4 +5,5 @@
 .post:hover {
 	cursor: pointer;
 	transform: scale(1.01);
+	background-color: #5bc0de;
 }

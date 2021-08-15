@@ -1,5 +1,6 @@
 // import libraries/packages
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 // import UI components
 import { ListGroupItem } from 'reactstrap';
 import { PostModal } from '../PostModal/PostModal.js';
@@ -7,45 +8,13 @@ import { PostModal } from '../PostModal/PostModal.js';
 import styles from '../styles/post.module.css';
 
 export const Post = ({ title, id, authorName, authorCatchPhrase, postTitle, postBody, postId, postUserId }) => {
-	const [ colorState, setColorState ] = useState('');
 	const [ modal, setModal ] = useState(false);
-	const handleMouseEnter = () => {
-		const time = 0; // amt time for setTimeout - set to 0 so post bg color states change instantly
-		const timerId = setTimeout(() => {
-			setColorState('info'); // bootstrap util class
-		}, time);
-		// clean up function to clear timer
-		return () => {
-			clearInterval(timerId);
-		};
-	};
-	const handleMouseLeave = () => {
-		const time = 0; // amt time for setTimeout - set to 0 so post bg color states change instantly
-		const timerId = setTimeout(() => {
-			setColorState('');
-		}, time);
-		// clean up function to clear timer
-		return () => {
-			// do not clear the timer if modal is still open
-			if (modal) {
-				return;
-			}
-			clearInterval(timerId);
-		};
-	};
 	return (
-		<ListGroupItem
-			key={id}
-			className={styles['post']}
-			color={colorState}
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-		>
+		<ListGroupItem key={id} className={styles['post']}>
 			<PostModal
 				buttonLabel={title}
 				modal={modal}
 				setModal={setModal}
-				handleMouseLeave={handleMouseLeave}
 				modalHeader={title}
 				modalBody={postBody}
 				authorName={authorName}
@@ -53,4 +22,15 @@ export const Post = ({ title, id, authorName, authorCatchPhrase, postTitle, post
 			/>
 		</ListGroupItem>
 	);
+};
+
+Post.propTypes = {
+	title: PropTypes.string,
+	id: PropTypes.number,
+	authorName: PropTypes.string,
+	authorCatchPhrase: PropTypes.string,
+	postTitle: PropTypes.string,
+	postBody: PropTypes.string,
+	postId: PropTypes.number,
+	postUserId: PropTypes.number
 };

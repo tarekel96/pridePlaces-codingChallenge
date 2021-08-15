@@ -52,10 +52,18 @@ const App = () => {
 			// loading set to false bc author and post data has been fetched and mapped
 			setLoading(false);
 		});
-	});
+	}, []);
 
 	return (
-		<div>
+		<div
+			id="app"
+			style={{
+				backgroundImage:
+					'url(' +
+					'https://uploads-ssl.webflow.com/5f00ac7516929863f832df2c/5f4bfbcbb2f92145c5b96518_06.%20Wisteria.jpg' +
+					')'
+			}}
+		>
 			<h1 id="app-header">Posts</h1>
 
 			{!loading ? (
