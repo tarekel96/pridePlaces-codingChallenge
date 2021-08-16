@@ -22,7 +22,10 @@ export const PostModal = ({
 		<div>
 			<div onClick={toggle}>{buttonLabel}</div>
 			<Modal isOpen={modal} toggle={toggle} className={className}>
-				<ModalHeader toggle={toggle}>{modalHeader}</ModalHeader>
+				<ModalHeader toggle={toggle}>
+					<span className={styles['boldPhrases']}>Post Title</span> <br />
+					{modalHeader}
+				</ModalHeader>
 				<ModalBody>
 					<div>
 						<span className={styles['boldPhrases']}>Author Name</span> <br />
