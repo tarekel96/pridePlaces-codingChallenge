@@ -7,7 +7,8 @@
   * the post title
   * the post body
   * a close button
-The challenge is used to test candidates knowledge of front-end web-development, more details can be found here - https://github.com/ltcrawshaw/pridePlaces-codingChallenge. Additionally, the UI is mobile responsiveness to different screen sizes.
+
+- The challenge is used to test candidates knowledge of front-end web-development, more details can be found here - https://github.com/ltcrawshaw/pridePlaces-codingChallenge. Additionally, the UI is mobile responsiveness to different screen sizes.
 ## Instructions to run the program:
 - Install the npm packages via yarn: cd into client and then run the 'yarn' command
 - Start the application: Under the client folder, input the 'yarn start' command
